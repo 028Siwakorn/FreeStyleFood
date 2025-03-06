@@ -18,22 +18,27 @@
     <header>
         <nav>
             <h1>
-                FREESTYLE FOOD
+                TAMSANG - ตามสั่ง
             </h1>
         </nav>
     </header>
 
     <div class="container">
-        <div class="card__container">
-            <article class="card__article">
-                <img src="./product_img/หมูทอดกระเทียม.jpg" alt="image" class="card__img category-img">
-            </article>
-
+        <a href="food.html">
+            <div class="card__container">
+                <article class="card__article">
+                    <img src="./product_img/หมูทอดกระเทียม.jpg" alt="image" class="card__img category-img">
+                </article>
+        </a>
+        <a href="drink.html">
             <article class="card__article">
                 <img src="./product_img/น้ำดื่ม.jpg" alt="image" class="card__img category-img">
             </article>
-            </article>
-        </div>
+        </a>
+        <article class="card__article">
+            <img src="./product_img/หมูทอดกระเทียม.jpg" alt="image" class="card__img category-img">
+        </article>
+    </div>
     </div>
     <div class="container mt-5">
         <div class="row">
@@ -55,52 +60,61 @@
 
                     <!-- Product 2 -->
                     <div class="col-md-3 product">
-                        <img src="./product_img/กระเพราหมูสับ.jpg" alt="Product 2 Image" width="150px" height="150px" />
-                        <h5>กระเพราหมูสับ<br>$35</h5>
-                        <button class="btn btn-primary add-to-cart" data-product-id="กระเพราหมูสับ" data-price="35">
+                        <img src="./product_img/หมูทอดกระเทียม.jpg" alt="Product 2 Image" width="150px"
+                            height="150px" />
+                        <h5>หมูทอดกระเทียม<br>$35</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="หมูทอดกระเทียม" data-price="30">
                             Add to Cart
                         </button>
                     </div>
 
                     <!-- Product 3 -->
                     <div class="col-md-3 product">
-                        <img src="./product_img/หมูทอดกระเทียม.jpg" alt="Product 3 Image" width="150px"
-                            height="150px" />
-                        <h5>หมูทอดกระเทียม<br>$30</h5>
-                        <button class="btn btn-primary add-to-cart" data-product-id="หมูทอดกระเทียม" data-price="30">
-                            Add to Cart
-                        </button>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="col-md-3 product">
-                        <img src="./product_img/ผัดซีอิ๊ว.jpg" alt="Product 4 Image" width="150px" height="150px" />
+                        <img src="./product_img/ผัดซีอิ๊ว.jpg" alt="Product 3 Image" width="150px" height="150px" />
                         <h5>ผัดซีอิ๊ว<br>$40</h5>
-                        <button class="btn btn-primary add-to-cart" data-product-id="ผัดซีอิ๊ว" data-price="40">
+                        <button class="btn btn-primary add-to-cart" data-product-id="ผัดซีอิ๊วหมูสับ" data-price="40">
                             Add to Cart
                         </button>
                     </div>
-
-                    <!-- Product 5 -->
-                    <div class="col-md-3 product">
-                        <img src="./product_img/ผัดไท.jpg" alt="Product 5 Image" width="150px" height="150px" />
-                        <h5>ผัดไท<br>$40</h5>
-                        <button class="btn btn-primary add-to-cart" data-product-id="ผัดไท" data-price="40">
-                            Add to Cart
-                        </button>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="col-md-3 product">
-                        <img src="./product_img/ข้าวผัดปู.jpg" alt="Product 6 Image" width="150px" height="150px" />
-                        <h5>ข้าวผัดปู<br>$60</h5>
-                        <button class="btn btn-primary add-to-cart" data-product-id="ข้าวผัดปู" data-price="60">
-                            Add to Cart
-                        </button>
-                    </div>
-
                 </div>
             </div>
+            <!-- เพิ่ม HTML สำหรับ Popup -->
+            <div id="food-details-popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn" id="close-popup">&times;</span>
+                    <h2>เลือกเมนู</h2>
+                    <form id="food-options-form">
+                        <label for="meat-type">เนื้อสัตว์:</label>
+                        <select id="meat-type">
+                            <option value="หมู">หมูสับ</option>
+                            <option value="หมูกรอบ">หมูกรอบ</option>
+                            <option value="ไก่">ไก่</option>
+                            <option value="เนื้อ">เนื้อ</option>
+                            <option value="เป็ด">เป็ด</option>
+                        </select>
+                        <br>
+
+                        <label for="size">ขนาด:</label>
+                        <select id="size">
+                            <option value="ธรรมดา">ธรรมดา</option>
+                            <option value="พิเศษ">พิเศษ</option>
+                        </select>
+                        <br>
+
+                        <label for="spiciness">ความเผ็ด:</label>
+                        <select id="spiciness">
+                            <option value="เผ็ดน้อย">เผ็ดน้อย</option>
+                            <option value="เผ็ดมาก">เผ็ดมาก</option>
+                        </select>
+                        <br>
+                        <button type="submit" id="submit-options">ตกลง</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
 
             <div class="col-md-3">
                 <h2 style="margin-top: 30px">
@@ -111,7 +125,7 @@
                     <p>No items in cart.</p>
                 </div>
                 <button class="btn btn-success mt-3" id="printCart">
-                    Print Cart Receipt
+                    ปริ้นใบเสร็จออกมา
                 </button>
                 <!-- <button class="btn btn-success mt-3" id="printProductReceipts">Print Product Receipts</button> -->
             </div>

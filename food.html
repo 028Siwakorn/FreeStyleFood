@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD - SHOP</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="main_index.css">
+    <link rel="stylesheet" href="nb-shop.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <a href="main_index.html" class="btn btn-secondary mt-3 ml-auto d-block">หน้าแรก</a>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="logo d-flex justify-content-center" style="margin-bottom: 30px">
+                    <h1>เมนูอาหาร</h1><br /><br />
+                </div>
+
+                <div id="products" class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-3 product">
+                        <img src="./product_img/กระเพราหฒูกรอบ.jpg" alt="Product 1 Image" width="150px"
+                            height="150px" />
+                        <h5>กระเพราหมูกรอบ<br>$40</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="กระเพราหมูกรอบ" data-price="40">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-3 product">
+                        <img src="./product_img/กระเพราหมูสับ.jpg" alt="Product 2 Image" width="150px" height="150px" />
+                        <h5>กระเพราหมูสับ<br>$35</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="กระเพราหมูสับ" data-price="35">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-3 product">
+                        <img src="./product_img/หมูทอดกระเทียม.jpg" alt="Product 3 Image" width="150px"
+                            height="150px" />
+                        <h5>หมูทอดกระเทียม<br>$30</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="หมูทอดกระเทียม" data-price="30">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="col-md-3 product">
+                        <img src="./product_img/ผัดซีอิ๊ว.jpg" alt="Product 3 Image" width="150px" height="150px" />
+                        <h5>ผัดซีอิ๊ว<br>$30</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="ผัดซีอิ๊ว" data-price="30">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="col-md-3 product">
+                        <img src="./product_img/ผัดไท.jpg" alt="Product 3 Image" width="150px" height="150px" />
+                        <h5>ผัดไท<br>$35</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="ผัดไท" data-price="35">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="col-md-3 product">
+                        <img src="./product_img/ข้าวผัดปู.jpg" alt="Product 3 Image" width="150px" height="150px" />
+                        <h5>ข้าวผัดปู<br>$40</h5>
+                        <button class="btn btn-primary add-to-cart" data-product-id="ข้าวผัดปู" data-price="40">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <h2 style="margin-top: 30px">
+                    อาหารที่กดสั่ง
+                </h2>
+
+                <div id="cart" class="mt-3">
+                    <p>No items in cart.</p>
+                </div>
+                <button class="btn btn-success mt-3" id="printCart">
+                    ปริ้นใบเสร็จออกมา
+                </button>
+                <!-- <button class="btn btn-success mt-3" id="printProductReceipts">Print Product Receipts</button> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js before your closing body tag -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="cart.js"></script>
+</body>
+<script>
+    const btn = document.getElementById("btn")
+    btn.addEventListener("click", () => {
+        document.querySelector("header ul").classList.toggle("show")
+    })
+</script>
+<!-- เพิ่ม HTML สำหรับ Popup -->
+<div id="food-details-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-popup">&times;</span>
+        <h2>เลือกเมนู</h2>
+        <form id="food-options-form">
+            <label for="meat-type">เนื้อสัตว์:</label>
+            <select id="meat-type">
+                <option value="หมู">หมูสับ</option>
+                <option value="หมู">หมูกรอบ</option>
+                <option value="ไก่">ไก่</option>
+                <option value="เนื้อ">เนื้อ</option>
+                <option value="เป็ด">เป็ด</option>
+            </select>
+            <br>
+
+            <label for="size">ขนาด:</label>
+            <select id="size">
+                <option value="ธรรมดา">ธรรมดา</option>
+                <option value="พิเศษ">พิเศษ</option>
+            </select>
+            <br>
+
+            <label for="spiciness">ความเผ็ด:</label>
+            <select id="spiciness">
+                <option value="เผ็ดน้อย">เผ็ดน้อย</option>
+                <option value="เผ็ดมาก">เผ็ดมาก</option>
+            </select>
+            <br>
+
+            <button type="submit" id="submit-options">ตกลง</button>
+        </form>
+    </div>
+</div>
+
+</html>

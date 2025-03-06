@@ -212,10 +212,57 @@ function generateCartReceipt() {
         </tbody>
       </table>
       <p>Total Price: $${totalPrice}</p>
-      <p>คุณ Kays Tel.088-888-8888</p>
+      <p>คุณ First Tel.064-054-6514</p>
       `;
 
   return receiptContent;
-}
 
+}
+// ฟังก์ชันเพื่อเปิด Popup
+document.querySelectorAll('.product img').forEach((img) => {
+  img.addEventListener('click', () => {
+    // เปิด Popup เมื่อคลิกที่รูป
+    const popup = document.getElementById("food-details-popup");
+    popup.style.display = "flex";
+  });
+});
+
+// ฟังก์ชันปิด Popup
+document.getElementById('close-popup').addEventListener('click', () => {
+  const popup = document.getElementById("food-details-popup");
+  popup.style.display = "none";
+});
+
+// ฟังก์ชันจัดการเมื่อกรอกฟอร์มและส่งข้อมูล
+document.getElementById('food-options-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const meatType = document.getElementById('meat-type').value;
+  const size = document.getElementById('size').value;
+  const spiciness = document.getElementById('spiciness').value;
+
+  alert(`เลือกเนื้อสัตว์: ${meatType}\nขนาด: ${size}\nความเผ็ด: ${spiciness}`);
+
+  // ปิด Popup หลังจากกดตกลง
+  document.getElementById("food-details-popup").style.display = "none";
+})
+
+
+// ฟังก์ชันเพื่อเปิด Popup เมื่อกดที่สินค้าน้ำอัดลม
+document.querySelector('.product img[src="./product_img/soft-drink.jpg"]').addEventListener('click', function () {
+  document.getElementById("drink-details-popup").style.display = "block"; // เปิด Popup
+});
+
+// ฟังก์ชันเพื่อปิด Popup
+document.getElementById("close-drink-popup").addEventListener('click', function () {
+  document.getElementById("drink-details-popup").style.display = "none"; // ปิด Popup
+});
+
+// ฟังก์ชันเพื่อจัดการเมื่อกดตกลงในฟอร์ม
+document.getElementById("drink-options-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // ป้องกันการส่งฟอร์ม
+  var selectedDrink = document.getElementById("soft-drink-type").value;
+  alert("คุณเลือกน้ำ: " + selectedDrink); // แสดงน้ำที่เลือก
+  document.getElementById("drink-details-popup").style.display = "none"; // ปิด Popup หลังจากเลือก
+});
 // ++++++++++++++++++++++++++++
